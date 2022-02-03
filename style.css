@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+* {
+    box-sizing: border-box;
+}
+* img{
+    width: 100px;
+    height: 100px;
+}
+
+body{
+    justify-content: center;
+    background-color: #EEF9BF;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+header {
+    margin-top: 40px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+header h1{
+    width: 540px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 56px;
+    line-height: 66px;
+    letter-spacing: -0.004em;
+    color: #75B79E;
+    text-align: center;
+}
+
+main{
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+}
+
+.espaçoDaCarta{
+    position: relative;
+    width: 117px;
+    height: 146px;
+    /* background: #000; */
+    /*border: 1px solid #99CEA8;
+    border-radius: 5px;*/
+    margin: 0 24px 30px 24px; 
+}
+.carta{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+    background: yellow;
+}
+.carta:hover{
+    transform: rotateY(180deg);
+}
+.frente{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background: #A7E9AF;
+    border: 1px solid #99CEA8;
+    border-radius: 5px;
+}
+.costas{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+    background: #A7E9AF;
+    border: 1px solid #99CEA8;
+    border-radius: 5px;
+}
+
+/* .carta{
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+    min-width: 117px;
+    min-height: 146px;
+    background: #A7E9AF;
+    border: 1px solid #99CEA8;
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin: 0 24px 30px 24px;
+}
+.cartaFrente{
+    background-color: aqua;
+    transform: rotateY(180deg) ;
+}
+.cartaAtras{
+    background-color: blueviolet;
+    /* transform: rotateY(180deg);
+}
+ .girar{
+    transform: rotateY(180deg);
+} */
+/*
+.carta img{
+
+    object-fit: cover;
+    height: 100px;
+    width: 100px;
+    border-radius: 0px;
+}*/
