@@ -44,8 +44,8 @@ main{
     width: 117px;
     height: 146px;
     /* background: #000; */
-    /*border: 1px solid #99CEA8;
-    border-radius: 5px;*/
+    /* border: 1px solid #99CEA8; */
+    border-radius: 5px;
     margin: 0 24px 30px 24px; 
 }
 .carta{
@@ -54,22 +54,9 @@ main{
     height: 100%;
     transform-style: preserve-3d;
     transition: all 0.5s ease;
-    background: yellow;
 }
-.carta:hover{
+.viradinha{
     transform: rotateY(180deg);
-}
-.frente{
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    background: #A7E9AF;
-    border: 1px solid #99CEA8;
-    border-radius: 5px;
 }
 .costas{
     position: absolute;
@@ -85,34 +72,23 @@ main{
     border-radius: 5px;
 }
 
-/* .carta{
+.frente{
+    position: absolute;
+    display: flex;
     justify-content: center;
     align-items: center;
-    transform-style: preserve-3d;
-    min-width: 117px;
-    min-height: 146px;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
     background: #A7E9AF;
     border: 1px solid #99CEA8;
-    box-sizing: border-box;
     border-radius: 5px;
-    margin: 0 24px 30px 24px;
 }
-.cartaFrente{
-    background-color: aqua;
-    transform: rotateY(180deg) ;
-}
-.cartaAtras{
-    background-color: blueviolet;
-    /* transform: rotateY(180deg);
-}
- .girar{
-    transform: rotateY(180deg);
-} */
-/*
+
 .carta img{
 
     object-fit: cover;
     height: 100px;
     width: 100px;
     border-radius: 0px;
-}*/
+}
