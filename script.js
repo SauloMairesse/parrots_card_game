@@ -9,7 +9,7 @@ var nCartas;
 
 iniciarJogo()
 
-// Preparando HTML PARA MOSTRAR O N CERTO DE CARTAS
+// Iniciando o Jogo
 
 function iniciarJogo(){
     imagem.sort(comparador); //Imagens embaralhadas.
@@ -24,6 +24,8 @@ function iniciarJogo(){
         }
     }
 }
+
+// Gerando e Distribuindo as Cartas na Mesa
 
 function cartasNaMesa(){
     for (let i = 0; i < nCartas; i++) {
@@ -42,13 +44,13 @@ function cartasNaMesa(){
         asCartas.push(novaCarta);
         asCartas.sort(comparador);
     }
-    // "Postando" As IMAGENS NO HTML
+    // "Distribuindo" As IMAGENS NO HTML
     for(let i = 0; i < asCartas.length; i++){
         mainHTML.innerHTML = mainHTML.innerHTML + asCartas[i];
     }
 }
 
-//  ------- Funções --------
+// Funções de Interação com as Cartas
 
 function virarCarta(diviSelecionada){
         diviSelecionada.classList.add('viradinha');
@@ -67,6 +69,8 @@ function virarCarta(diviSelecionada){
             console.log(asCartas.length);
 }
 
+// Condições de Comparação
+
 function compararCartas(){
     if(primeiraCarta.innerHTML !== segundaCarta.innerHTML){
         primeiraCarta.classList.remove('primeiraCarta');
@@ -84,6 +88,8 @@ function compararCartas(){
         segundaCarta.classList.add('estouComMeuPar');
     }
 }
+
+// Função de aleatoriedade para geração de cartas 
 
 function comparador() { 
 	return Math.random() - 0.5;

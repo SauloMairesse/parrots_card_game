@@ -91,3 +91,17 @@ main{
     width: 100px;
     border-radius: 0px;
 }
+
+@media(max-width: 614px){
+    header h1{
+        width: 540px;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 36px;
+        line-height: 42,19px;
+        letter-spacing: -0.004em;
+        color: #75B79E;
+        text-align: center;
+    }
+}
