@@ -1,15 +1,17 @@
 // Declarando e Preparando Variáveis Globais
 
 let mainHTML = document.querySelector('main');
-let asCartas = [];
 let primeiraCarta;
 let segundaCarta;
 const imagem = ["arquivosUteis/bobrossparrot.gif","arquivosUteis/explodyparrot.gif","arquivosUteis/fiestaparrot.gif","arquivosUteis/metalparrot.gif","arquivosUteis/revertitparrot.gif","arquivosUteis/tripletsparrot.gif","arquivosUteis/unicornparrot.gif",];
 var nCartas;
-
-iniciarJogo()
+let asCartas = [];
+var tentativas = parseInt(0);
+var cartasCorretas = parseInt(0);
 
 // Iniciando o Jogo
+
+iniciarJogo()
 
 function iniciarJogo(){
     imagem.sort(comparador); //Imagens embaralhadas.
@@ -29,17 +31,17 @@ function iniciarJogo(){
 
 function cartasNaMesa(){
     for (let i = 0; i < nCartas; i++) {
-        let novaCarta = `<div class="espaçoDaCarta">                          
+        let novaCarta = `<div class="espaçoDaCarta" data-identifier="card">                          
                             <div class="carta" onclick="virarCarta(this)">
-                                <div class="frente">
+                                <div class="frente" data-identifier="front-face">
                                     <img src="arquivosUteis/front.png" alt="">
                                 </div>
-                                <div class="costas">
+                                <div class="costas" data-identifier="back-face">
                                     <img src="${imagem[i]}" alt="">
                                 </div>
                             </div>
                         </div>`;
-        console.log(asCartas)
+        // console.log(asCartas)
         asCartas.push(novaCarta);
         asCartas.push(novaCarta);
         asCartas.sort(comparador);
@@ -58,15 +60,15 @@ function virarCarta(diviSelecionada){
             diviSelecionada.classList.add('primeiraCarta');
             primeiraCarta = diviSelecionada;
             primeiraCarta.setAttribute('onclick','')
-            console.log(primeiraCarta);
+            // console.log(primeiraCarta);
             return false;
         }
             diviSelecionada.classList.add('segundaCarta');
             segundaCarta = diviSelecionada;
-            console.log(segundaCarta);
+            // console.log(segundaCarta);
             setTimeout(compararCartas,1000);
-            console.log(document.querySelectorAll('.estouComMeuPar').length);
-            console.log(asCartas.length);
+            // console.log(document.querySelectorAll('.estouComMeuPar').length);
+            // console.log(asCartas.length);
 }
 
 // Condições de Comparação
@@ -78,6 +80,7 @@ function compararCartas(){
         segundaCarta.classList.remove('segundaCarta');
         segundaCarta.classList.remove('viradinha');
         primeiraCarta.setAttribute('onclick','virarCarta(this)');
+        tentativas = tentativas + 1;
     }
     else{
         primeiraCarta.classList.remove('primeiraCarta');
@@ -86,6 +89,24 @@ function compararCartas(){
         segundaCarta.classList.remove('segundaCarta');
         segundaCarta.setAttribute('onclick','');
         segundaCarta.classList.add('estouComMeuPar');
+        tentativas = tentativas + 1;
+        cartasCorretas = cartasCorretas + 2;
+        console.log(cartasCorretas);
+        console.log(asCartas.length);
+        finalizarJogo(cartasCorretas,asCartas, tentativas);
+    }
+}
+function finalizarJogo(cartasCorretas,asCartas){
+    if(cartasCorretas == asCartas.length){
+        alert(`VOCÊ GANHOU O JOGO EM ${tentativas} TENTATIVAS! PARABÉNS !`);
+        const jogarDeNovo = prompt("Deseja Jogar Denovo ? (1 - Sim; 2- Não)");
+        if (jogarDeNovo == 1){
+            window.location.reload();
+        }
+        else{
+            alert('Até mais...')
+        }
+
     }
 }
 
